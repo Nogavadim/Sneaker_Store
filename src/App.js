@@ -1,6 +1,9 @@
 import Card from "./components/Card";
 import Drawer from "./components/Drawer";
 import Header from "./components/Header";
+import products from "./data/products"; // импорт масива товаров
+
+
 
 
 function App() {
@@ -24,7 +27,11 @@ function App() {
 
 
         <ul className="list-reset content-list">
-          <Card />
+
+          {products.map((obj) =>
+           <Card  key={obj.id} title={obj.title} price={obj.price} imgUrl={obj.imgUrl}/> // отрисовка карточек спомощью Map
+          )}
+
         </ul>
 
 

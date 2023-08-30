@@ -1,23 +1,29 @@
 import React from 'react'
 
-export default function Card() {
+export default function Card(props) {
+
+  const onClickButton = () => {
+    alert(props.title)
+  }
+
+
   return (
     <li className="card">
 
-            <img src="img/sneakers/sneakers-1.png" alt="logo" />
+            <img src={props.imgUrl} alt="logo" />
 
-            <p className="content-title">Мужские Кроссовки Nike Blazer Mid Suede</p>
+            <p className="content-title">{props.title}</p>
 
             <div className="content-info">
 
               <div >
 
                 <span>Цена:</span>
-                <p>12 999 руб.</p>
+                <p>{props.price} руб.</p>
 
               </div>
 
-              <button className="btn-reset btn">
+              <button onClick={onClickButton} className="btn-reset btn">
                 <img width={30} height={30} src="/img/plus.svg" alt="logo" />
               </button>
 
