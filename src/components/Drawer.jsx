@@ -1,43 +1,38 @@
 import React from 'react'
 
-export default function Drawer() {
+export default function Drawer({onClose, products = []}) {
+  console.log(products);
   return (
-    <div style={{ display: 'none' }} className="overlay">
+    <div className="overlay">
     <div className="drawer">
       <div className="drawer-head">
         <h2>Корзина</h2>
-        <button className="btn-reset">
+        <button onClick={onClose} className="btn-reset">
           <img width={30} height={30} src="/img/btn-close.png" alt="logo" />
         </button>
       </div>
 
       <ul className="cartList list-reset">
 
-        <li className="cartItem">
-          <img width={70} height={70} src="/img/sneakers/sneakers-1.png" alt="logo" />
-          <div>
-            <p>Мужские Кроссовки Nike Air Max 270</p>
-            <span>12 999 руб.</span>
-          </div>
+        {products.map((obj) => {
 
-          <button className="btn-reset">
-            <img width={30} height={30} src="/img/btn-close.png" alt="logo" />
-          </button>
+            return (
+              <li key={obj.id} className="cartItem">
+              <img width={70} height={70} src={obj.imgUrl} alt="logo" />
+              <div>
+                <p>{obj.title}</p>
+                <span>{obj.price} руб.</span>
+              </div>
 
-        </li>
+              <button className="btn-reset">
+                <img width={30} height={30} src="/img/btn-close.png" alt="logo" />
+              </button>
 
-        <li className="cartItem">
-          <img width={70} height={70} src="/img/sneakers/sneakers-1.png" alt="logo" />
-          <div>
-            <p>Мужские Кроссовки Nike Air Max 270</p>
-            <span>12 999 руб.</span>
-          </div>
+            </li>
+            )
+        })}
 
-          <button className="btn-reset">
-            <img width={30} height={30} src="/img/btn-close.png" alt="logo" />
-          </button>
 
-        </li>
 
       </ul>
 
